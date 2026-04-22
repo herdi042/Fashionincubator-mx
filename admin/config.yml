@@ -1,44 +1,33 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # Asegúrate de que tu rama principal se llame 'main' y no 'master'
 
 media_folder: "images"
 public_folder: "/images"
-
 locale: es
 
 collections:
   - name: "cursos"
     label: "Cursos"
     label_singular: "Curso"
-    folder: "data/cursos"
-    create: true
+    folder: "data/cursos" # <--- Esta es la carpeta que ya tienes creada
+    create: true # Permite crear nuevos archivos .json desde el panel
     delete: true
-    extension: "json"
-    format: "json"
-    identifier_field: "nombre"
-    summary: "{{nombre}} — ${{precio}} MXN — {{nivel}}"
+    extension: json
+    format: json
+    identifier_field: nombre
+    summary: "{{nombre}} — ${{precio}} MXN"
     fields:
-      - { label: "ID único", name: "id", widget: "string", hint: "Sin espacios. Ej: costura-avanzada" }
+      - { label: "ID único", name: "id", widget: "string", hint: "Ej: curso-costura" }
       - { label: "Nombre del curso", name: "nombre", widget: "string" }
-      - { label: "Precio (MXN)", name: "precio", widget: "number", value_type: "int", min: 0 }
-      - { label: "Duración", name: "duracion", widget: "string", hint: "Ej: 8 semanas" }
-      - label: "Nivel"
-        name: "nivel"
-        widget: "select"
-        options: ["Principiante", "Intermedio", "Avanzado"]
+      - { label: "Precio (MXN)", name: "precio", widget: "number", value_type: int }
+      - { label: "Duración", name: "duracion", widget: "string" }
+      - { label: "Nivel", name: "nivel", widget: "select", options: ["Principiante", "Intermedio", "Avanzado"] }
       - { label: "Instructor", name: "instructor", widget: "string" }
-      - { label: "Horario", name: "horario", widget: "string", hint: "Ej: Lunes y Miércoles · 18:00 – 21:00" }
+      - { label: "Horario", name: "horario", widget: "string" }
       - { label: "Descripción", name: "descripcion", widget: "text" }
-      - label: "Incluye"
-        name: "incluye"
-        widget: "list"
-        field: { label: "Item", name: "item", widget: "string" }
-      - label: "Objetivos de aprendizaje"
-        name: "objetivos"
-        widget: "list"
-        field: { label: "Objetivo", name: "objetivo", widget: "string" }
-      - { label: "Imagen del curso", name: "imagen", widget: "image", required: false }
+      - { label: "Incluye", name: "incluye", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      - { label: "Objetivos de aprendizaje", name: "objetivos", widget: "list", field: { label: "Objetivo", name: "objetivo", widget: "string" } }
       - { label: "ID Tienda Lemon Squeezy", name: "lemon_store", widget: "string", default: "351738" }
       - { label: "ID Producto Lemon Squeezy", name: "lemon_product", widget: "string", default: "990310" }
-      - { label: "Curso activo", name: "activo", widget: "boolean", default: true, hint: "Desactivar para ocultar sin borrar" }
+      - { label: "Curso activo", name: "activo", widget: "boolean", default: true }
