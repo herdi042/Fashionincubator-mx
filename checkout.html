@@ -490,13 +490,19 @@
   let currentDlgIdx = null;
 
   // ── CARGAR CURSOS DESDE JSON ──
+  // Lee archivos individuales de data/cursos/*.json (estructura Decap CMS)
+  const COURSE_FILES = ['costura', 'diseno-moda', 'patronaje', 'fotografia'];
+
   async function loadCourses() {
     try {
-      const res = await fetch('data/cursos.json');
-      const data = await res.json();
-      // Soporta array plano o carpeta con archivos individuales
-      const lista = data.cursos ? data.cursos : data;
-      allCourses = (Array.isArray(lista) ? lista : [lista]).filter(c => c.activo);
+      const results = await Promise.allSettled(
+        COURSE_FILES.map(f => fetch('data/cursos/' + f + '.json').then(r => r.json()))
+      );
+      allCourses = results
+        .filter(r => r.status === 'fulfilled')
+        .map(r => r.value)
+        .filter(c => c.activo);
+      if (allCourses.length === 0) throw new Error('Sin cursos');
       renderCourseGrid();
     } catch (e) {
       // Fallback con cursos de demostración si no encuentra el JSON
@@ -719,4 +725,3 @@
 </script>
 </body>
 </html>
-
