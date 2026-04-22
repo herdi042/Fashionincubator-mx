@@ -1,15 +1,24 @@
 {
-  "id": "costura",
-  "nombre": "Costura de High Fashion",
-  "precio": 6500,
-  "duracion": "8 semanas",
-  "nivel": "Principiante",
-  "instructor": "Ana Martínez",
+  "nivel": "Avanzado",
   "horario": "Lunes y Miércoles · 18:00 – 21:00",
-  "descripcion": "Domina las técnicas fundamentales de costura profesional. Aprende desde los puntos básicos hasta técnicas avanzadas de construcción de prendas.",
-  "incluye": ["Materiales de costura profesionales", "Acceso a taller equipado", "Sesiones de mentoría personalizada", "Certificado de finalización"],
-  "objetivos": ["Dominar técnicas de costura a mano y máquina", "Comprender tipos de telas y sus aplicaciones", "Realizar acabados profesionales"],
-  "lemon_store": "351738",
   "lemon_product": "990310",
-  "activo": true
+  "duracion": "8 semanas",
+  "precio": 6500,
+  "nombre": "Costura de High Fashion",
+  "descripcion": "Domina las técnicas fundamentales de costura profesional. Aprende desde los puntos básicos hasta técnicas avanzadas de construcción de prendas.",
+  "activo": true,
+  "incluye": [
+    "Materiales de costura profesionales",
+    "Acceso a taller equipado",
+    "Sesiones de mentoría personalizada",
+    "Certificado de finalización"
+  ],
+  "lemon_store": "351738",
+  "objetivos": [
+    "Dominar técnicas de costura a mano y máquina",
+    "Comprender tipos de telas y sus aplicaciones",
+    "Realizar acabados profesionales"
+  ],
+  "id": "costura",
+  "instructor": "Ana Martínez"
 }
