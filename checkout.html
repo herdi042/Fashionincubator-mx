@@ -492,7 +492,7 @@
   // ── CARGAR CURSOS DESDE JSON ──
   async function loadCourses() {
     try {
-      const res = await fetch('_data/cursos.json');
+      const res = await fetch('data/cursos.json');
       const data = await res.json();
       // Soporta array plano o carpeta con archivos individuales
       const lista = data.cursos ? data.cursos : data;
@@ -719,3 +719,4 @@
 </script>
 </body>
 </html>
+
