@@ -13,14 +13,14 @@ collections:
     files:
       - label: "Todos los Cursos"
         name: "cursos_data"
-        file: "_data/cursos.json"
+        file: "data/cursos.json"
         fields:
           - label: "Lista de Cursos"
             name: "cursos"
             widget: "list"
-            summary: "{{fields.nombre}} — ${{fields.precio}} MXN"
+            summary: "{{fields.nombre}} — ${{fields.precio}} MXN — {{fields.nivel}}"
             fields:
-              - { label: "ID único", name: "id", widget: "string", hint: "Identificador único sin espacios, ej: costura-avanzado" }
+              - { label: "ID único", name: "id", widget: "string", hint: "Sin espacios ni caracteres especiales. Ej: costura-avanzada" }
               - { label: "Nombre del curso", name: "nombre", widget: "string" }
               - { label: "Precio (MXN)", name: "precio", widget: "number", value_type: int, min: 0 }
               - { label: "Duración", name: "duracion", widget: "string", hint: "Ej: 8 semanas" }
